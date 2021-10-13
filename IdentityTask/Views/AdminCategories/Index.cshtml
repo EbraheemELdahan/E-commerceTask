@@ -1,10 +1,24 @@
-﻿@model IEnumerable<IdentityTask.Models.Category>
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IEnumerable<IdentityTask.Models.Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2>Categories</h2>
+<div class="form-group ml-4 mb-4" style="margin-left:10px">
+    <span>Search </span>  <input type="text" id="txtSearch" class="form-search" />
+    </div>
+    <div class="row ml-4" style="margin-left:10px">
+        @Html.ActionLink("Order by Name", "Index", new { SortOrder = ViewBag.NameSortParam }, new { @class = "btn btn-primary" })
+
+
+        @Html.ActionLink("Order by NumberOfProducts", "Index", new { SortOrder = ViewBag.ProductsCountParam}, new { @class = "btn btn-primary" })
+
+    </div>
+
+
 
 <table class="table table-bordered table-light">
     <tr>
@@ -12,15 +26,43 @@
         <th>Name</th>
         <th>Description</th>
         <th>Number Of Products</th>
+        <th>operations</th>
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td><img src="~/Images/CategoriesImages/@item.CatName"  style="border-radius:50%" height="70px" width="70px"/></td>
-    <td>@item.Name</td>
-    <td>@item.Description</td>
-    <td>@item.Products.Count</td>
-  </tr>
+        <tr>
+            <td><img src="~/Images/CategoriesImages/@item.CatName" style="border-radius:50%" height="70px" width="70px" /></td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Products.Count</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
+            </td>
+        </tr>
     }
 
 </table>
+<div class="form-group " style="text-align:center">
+    
+        @Html.PagedListPager((IPagedList)ViewBag.CategoriesPerPage, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))
+    
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $("#txtSearch").keyup(function () {
+                var userInput = $(this).val();
+                $("table:first tr:gt(0)").each(function (index, element) {
+                    var currentValue = $(this).children("td:eq(1)").text()
+                    if (currentValue.toLowerCase().indexOf(userInput.toLowerCase()) != -1) {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+                })//end each
+            })//end key
+        })//end of load
+    </script>
+    
+    }
