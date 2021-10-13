@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IdentityTask.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Birth Date</th>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Operations</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Email</td>
+            <td>@item.DaetOfBirth.ToString("dd/M/yyyy") </td>
+            <td>@item.CompanyName</td>
+            <td>@item.Roles.FirstOrDefault(a=>a.UserId==item.Id).RoleId</td>
+            <td>
+                @Html.ActionLink("Details", "Details", "student", new { id = item.Id }, new { @class = "btn btn-info col-sm-3" })
+                @Html.ActionLink("Edit", "Edit", "student", new { id = item.Id }, new { @class = "btn btn-warning col-sm-3" })
+                @Html.ActionLink("Delete", "Delete", "student", new { id = item.Id }, new { @class = "btn btn-danger col-sm-3", onclick = "return confirm('are you sure to delete')" })
+                @Html.ActionLink("EditPass", "editpassword", "student", new { id = item.Id }, new { @class = "btn btn-warning col-sm-3" })
+            
+            </td>
+
+        </tr>
+    }
+</table>
