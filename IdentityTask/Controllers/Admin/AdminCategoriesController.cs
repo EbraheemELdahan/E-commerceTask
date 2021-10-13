@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using IdentityTask.Models;
 using PagedList;
+using System.IO;
 
 namespace IdentityTask.Controllers.Admin
 {
@@ -15,6 +17,7 @@ namespace IdentityTask.Controllers.Admin
         public ActionResult Index(int? page,string SortOrder)
         {
             var categories = db.Categories.ToList();
+            ViewBag.CurrentSort = SortOrder;
             ViewBag.NameSortParam =String.IsNullOrEmpty(SortOrder)? "name_desc":"";
             ViewBag.ProductsCountParam = SortOrder == "countProducts" ? "Prod_desc" : "countProducts";
             switch (SortOrder)
@@ -66,7 +69,62 @@ namespace IdentityTask.Controllers.Admin
         {
             return View(db.Categories.Include("Products").FirstOrDefault(a => a.ID == id));
         }
+        public ActionResult edit(int? id)
+        {
+            if (id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            var category = db.Categories.FirstOrDefault(a => a.ID == id);
+            return View(category);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult edit (Category category,HttpPostedFileBase CatName)
+        {
+            if (ModelState.IsValid)
+            {
+                string NewCategoryName = category.ID + "." + CatName.FileName.Split('.')[1];
+                CatName.SaveAs(Server.MapPath("~/Images/CategoriesImages/" + NewCategoryName));
+                FileInfo fi = new FileInfo(Server.MapPath("~/Images/CategoriesImages/" + category.CatName));
+                fi.Delete();
+                category.CatName = NewCategoryName;
 
+                db.SaveChanges();
+                db.Entry(category).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                
+                
+                return RedirectToAction("index");
+
+            }
+            return View(category);
+        }
+        public ActionResult delete (int? id)
+        {
+            if (id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            return View(db.Categories.FirstOrDefault(a => a.ID == id));
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult delete(Category category)
+        {
+            var deletedCat = db.Categories.FirstOrDefault(a => a.ID == category.ID);
+            db.Categories.Remove(deletedCat);
+            foreach (var item in db.Products)
+            {
+                if (item.CategoryID == deletedCat.ID)
+                {
+                    item.CategoryID=null;
+                }
+            }
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
     
 }

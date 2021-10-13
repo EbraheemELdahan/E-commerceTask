@@ -442,6 +442,9 @@
     <Content Include="Views\AdminCategories\Index.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\AdminCategories\Details.cshtml" />
+    <Content Include="Views\AdminCategories\edit.cshtml" />
+    <Content Include="Views\AdminCategories\delete.cshtml" />
+    <Content Include="Views\AdminCategories\EditcreatePartialVeiw.cshtml" />
     <None Include="Views\Shared\product.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

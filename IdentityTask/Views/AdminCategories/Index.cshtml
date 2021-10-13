@@ -7,7 +7,7 @@
 }
 
 <h2>Categories</h2>
-<div class="form-group ml-4 mb-4" style="margin-left:10px">
+<div class="form-group ml-4 mb-4 " style="margin-left: 10px; width: 70%">
     <span>Search </span>  <input type="text" id="txtSearch" class="form-search" />
     </div>
     <div class="row ml-4" style="margin-left:10px">
@@ -20,7 +20,7 @@
 
 
 
-<table class="table table-bordered table-light">
+<table class="table d-table-cell table-bordered table-light col-6"  style="width:80%;margin:10px">
     <tr>
         <th>Category Img</th>
         <th>Name</th>
@@ -37,6 +37,9 @@
             <td>@item.Products.Count</td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
+                @Html.ActionLink("Edit", "edit", new { id = item.ID }, new { @class = "btn" })
+                @Html.ActionLink("Delete", "delete", new { id = item.ID }, new { @class = "btn" })
+
             </td>
         </tr>
     }
