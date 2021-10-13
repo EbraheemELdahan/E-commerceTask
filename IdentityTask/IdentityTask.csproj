@@ -438,6 +438,9 @@
     <Content Include="Views\Customer\Orders.cshtml" />
     <Content Include="Views\Customer\OrderDetails.cshtml" />
     <Content Include="Views\Customer\Profile.cshtml" />
+    <Content Include="Views\AdminCategories\Create.cshtml" />
+    <Content Include="Views\AdminCategories\Index.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
     <None Include="Views\Shared\product.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -490,7 +493,6 @@
     <Content Include="Views\Brands\Edit.cshtml" />
     <Content Include="Views\Brands\Index.cshtml" />
     <Content Include="Views\Shared\SearchHeader.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
@@ -504,7 +506,6 @@
     <Folder Include="Images\ProductsImages\" />
     <Folder Include="Images\SlideShow Images\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\AdminCategories\" />
     <Folder Include="Views\AdminProducts\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>

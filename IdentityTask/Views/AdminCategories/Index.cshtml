@@ -1,0 +1,26 @@
+﻿@model IEnumerable<IdentityTask.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Categories</h2>
+
+<table class="table table-bordered table-light">
+    <tr>
+        <th>Category Img</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Number Of Products</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td><img src="~/Images/CategoriesImages/@item.CatName"  style="border-radius:50%" height="70px" width="70px"/></td>
+    <td>@item.Name</td>
+    <td>@item.Description</td>
+    <td>@item.Products.Count</td>
+  </tr>
+    }
+
+</table>
