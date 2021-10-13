@@ -176,6 +176,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Admin\AdminCategoriesController.cs" />
+    <Compile Include="Controllers\Admin\AdminProductsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -502,6 +504,8 @@
     <Folder Include="Images\ProductsImages\" />
     <Folder Include="Images\SlideShow Images\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\AdminCategories\" />
+    <Folder Include="Views\AdminProducts\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
