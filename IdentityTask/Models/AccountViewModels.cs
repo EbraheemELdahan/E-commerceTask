@@ -66,6 +66,8 @@ namespace IdentityTaskApp.Models
     public class RegisterViewModel
 
     {
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
         [Required(ErrorMessage = "FirstName is Required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "FirstName must be 3 to 50 chars")]
         public string FirstName { get; set; }
@@ -93,7 +95,13 @@ namespace IdentityTaskApp.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        [Required (ErrorMessage ="this field is required")]
+        public string PhoneNumber { get; set; }
+        [Required(ErrorMessage = "this field is required")]
+        [Display(Name ="User Profile")]
+        public string UserImg { get; set; }
     }
+    
 
     public class ResetPasswordViewModel
     {

@@ -11,7 +11,7 @@ using IdentityTask.Models;
 
 namespace IdentityTask.Controllers
 {
-    [Authorize]
+    [Authorize (Roles ="Admin")]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

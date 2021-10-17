@@ -53,6 +53,7 @@
                             <li class="header_cart hidden-xs">@Html.ActionLink("Products", "Index", "AdminProducts", null, new { @class = "a" })</li>
                             <li class="header_cart hidden-xs">@Html.ActionLink("LogIn", "login", "Account", null, new { @class = "a" })</li>
                             <li class="header_cart hidden-xs">@Html.ActionLink("Users", "Index", "Users", null, new { @class = "a" })</li>
+                            <li class="header_cart hidden-xs">@Html.ActionLink("LogOut", "LogOff", "Account", null, new { @class = "a" })</li>
 
                         </ul>
                     </div>
@@ -89,6 +90,9 @@
                         <div class="logo "style="text-align:center"> <a href="/Home/Index"> <img src="~/Images/assets/images/logo.png" alt="logo"> </a></div>
                         <!-- /.logo -->
                         <!-- ============================================================= LOGO : END ============================================================= -->
+                    </div>
+                    <div style="text-align:center" class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder">
+                        <h1 style="color:white;text-align:center" >@ViewBag.Name</h1>    
                     </div>
                     <!-- /.logo-holder -->
 

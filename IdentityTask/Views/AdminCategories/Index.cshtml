@@ -3,24 +3,29 @@
 @model IEnumerable<IdentityTask.Models.Category>
 @{
     ViewBag.Title = "Index";
+    ViewBag.Name = "Categories";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
 }
 
-<h2>Categories</h2>
+
+<hr />
 <div class="form-group ml-4 mb-4 " style="margin-left: 10px; width: 70%">
     <span>Search </span>  <input type="text" id="txtSearch" class="form-search" />
-    </div>
-    <div class="row ml-4" style="margin-left:10px">
-        @Html.ActionLink("Order by Name", "Index", new { SortOrder = ViewBag.NameSortParam }, new { @class = "btn btn-primary" })
+</div>
+<div class="row ml-4" style="margin-left:10px">
+    @Html.ActionLink("Add Category", "Create", "AdminCategories", new { @class = "btn btn-success", style = "margin-top:5px;margin-left:5px" })
+
+    @Html.ActionLink("Order by Name", "Index", new { SortOrder = ViewBag.NameSortParam }, new { @class = "btn btn-primary" })
 
 
-        @Html.ActionLink("Order by NumberOfProducts", "Index", new { SortOrder = ViewBag.ProductsCountParam}, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Order by NumberOfProducts", "Index", new { SortOrder = ViewBag.ProductsCountParam }, new { @class = "btn btn-primary" })
 
-    </div>
+</div>
 
 
 
-<table class="table d-table-cell table-bordered table-light col-6"  style="width:80%;margin:10px">
+<table class="table d-table-cell table-bordered table-light col-6" style="width:80%;margin:10px">
     <tr>
         <th>Category Img</th>
         <th>Name</th>
@@ -46,9 +51,9 @@
 
 </table>
 <div class="form-group " style="text-align:center">
-    
-        @Html.PagedListPager((IPagedList)ViewBag.CategoriesPerPage, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))
-    
+
+    @Html.PagedListPager((IPagedList)ViewBag.CategoriesPerPage, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))
+
 </div>
 @section scripts{
     <script>
@@ -67,5 +72,5 @@
             })//end key
         })//end of load
     </script>
-    
-    }
+
+}

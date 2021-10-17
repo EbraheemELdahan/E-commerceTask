@@ -8,11 +8,13 @@
 
 <table class="table table-bordered">
     <tr>
+        <th>Profile Image</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
         <th>Birth Date</th>
         <th>Company</th>
+        <th>Phone Number</th>
         <th>Role</th>
         <th>Operations</th>
 
@@ -21,17 +23,21 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                <img src="~/Images/UsersProfile/@item.UserImg" style="border-radius:50%" height="50px" width="50px"/>
+            </td>
             <td>@item.FirstName</td>
             <td>@item.LastName</td>
             <td>@item.Email</td>
             <td>@item.DaetOfBirth.ToString("dd/M/yyyy") </td>
             <td>@item.CompanyName</td>
-            <td>@item.Roles.FirstOrDefault(a=>a.UserId==item.Id).RoleId</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.Roles.FirstOrDefault(a => a.UserId == item.Id).RoleId</td>
             <td>
-                @Html.ActionLink("Details", "Details", "student", new { id = item.Id }, new { @class = "btn btn-info col-sm-3" })
-                @Html.ActionLink("Edit", "Edit", "student", new { id = item.Id }, new { @class = "btn btn-warning col-sm-3" })
-                @Html.ActionLink("Delete", "Delete", "student", new { id = item.Id }, new { @class = "btn btn-danger col-sm-3", onclick = "return confirm('are you sure to delete')" })
-                @Html.ActionLink("EditPass", "editpassword", "student", new { id = item.Id }, new { @class = "btn btn-warning col-sm-3" })
+                @Html.ActionLink("Details", "Details", "student", new { id = item.Id })|
+                @Html.ActionLink("Edit", "Edit", "student", new { id = item.Id })|
+                @Html.ActionLink("Delete", "Delete", "student", new { id = item.Id }, new { onclick = "return confirm('are you sure to delete')" })|
+                @Html.ActionLink("EditPass", "editpassword", "student", new { id = item.Id })
             
             </td>
 

@@ -10,6 +10,7 @@ using System.IO;
 
 namespace IdentityTask.Controllers.Admin
 {
+    [Authorize(Roles ="Admin")]
     public class AdminCategoriesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -58,7 +59,7 @@ namespace IdentityTask.Controllers.Admin
                 db.Categories.Add(category);
                 db.SaveChanges();
                 string NewImgUrl = category.ID + "." + CatName.FileName.Split('.')[1];
-                CatName.SaveAs(Server.MapPath("~/Images/CategoriesImages/" + NewImgUrl));
+                CatName.SaveAs(Server.MapPath("~/Images/CategoriesImages/" )+ NewImgUrl);
                 category.CatName = NewImgUrl;
                 db.SaveChanges();
                 return RedirectToAction("index", "AdminCategories");
@@ -80,25 +81,32 @@ namespace IdentityTask.Controllers.Admin
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult edit (Category category,HttpPostedFileBase CatName)
+        public ActionResult edit (Category Newcategory,HttpPostedFileBase NewCatName)
         {
             if (ModelState.IsValid)
             {
-                string NewCategoryName = category.ID + "." + CatName.FileName.Split('.')[1];
-                CatName.SaveAs(Server.MapPath("~/Images/CategoriesImages/" + NewCategoryName));
-                FileInfo fi = new FileInfo(Server.MapPath("~/Images/CategoriesImages/" + category.CatName));
+                Category OldCategory = db.Categories.FirstOrDefault(a => a.ID == Newcategory.ID);
+                OldCategory.Name = Newcategory.Name;
+                OldCategory.Description = Newcategory.Description;
+                db.SaveChanges();
+                FileInfo fi = new FileInfo(Server.MapPath("~/Images/CategoriesImages/" )+ OldCategory.CatName);
                 fi.Delete();
-                category.CatName = NewCategoryName;
+                string NewCategoryImgName = OldCategory.ID + "_" + NewCatName.FileName;
+                NewCatName.SaveAs(Server.MapPath("~/Images/CategoriesImages/" )+ NewCategoryImgName);
+                
+                
+               
 
+                //db.Entry(category).State = System.Data.Entity.EntityState.Modified
+                OldCategory.CatName = NewCategoryImgName;
                 db.SaveChanges();
-                db.Entry(category).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                
                 
                 
                 return RedirectToAction("index");
 
             }
-            return View(category);
+            return View(Newcategory);
         }
         public ActionResult delete (int? id)
         {

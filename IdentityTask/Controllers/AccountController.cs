@@ -13,9 +13,10 @@ using IdentityTask.Models;
 
 namespace IdentityTask.Controllers
 {
-    [Authorize]
+    [Authorize (Roles ="Admin")]
     public class AccountController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -148,7 +149,7 @@ namespace IdentityTask.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model,HttpPostedFileBase UserImg)
         {
             if (ModelState.IsValid)
             {
@@ -159,6 +160,10 @@ namespace IdentityTask.Controllers
                    await UserManager.AddToRoleAsync(user.Id, "UserCustomer");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
+                    string ImgUser =user.Id+"_"+user.FirstName+user.LastName+UserImg.FileName;
+                    UserImg.SaveAs(Server.MapPath("~/Images/UsersProgile") + ImgUser);
+                    user.UserImg = ImgUser;
+                    db.SaveChanges();
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

@@ -25,6 +25,7 @@ namespace IdentityTask.Models
         public string CompanyName { get; set; }
         
         public System.DateTime DaetOfBirth { get; set; }
+        public string UserImg { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

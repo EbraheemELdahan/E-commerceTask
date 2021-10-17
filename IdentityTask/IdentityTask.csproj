@@ -176,6 +176,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Admin\AdminBrandsController.cs" />
     <Compile Include="Controllers\Admin\AdminCategoriesController.cs" />
     <Compile Include="Controllers\Admin\AdminProductsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -232,6 +233,10 @@
     <Compile Include="Migrations\202110121050227_users.Designer.cs">
       <DependentUpon>202110121050227_users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110170619438_progile.cs" />
+    <Compile Include="Migrations\202110170619438_progile.Designer.cs">
+      <DependentUpon>202110170619438_progile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -243,6 +248,7 @@
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductsPaginationViewModel.cs" />
     <Compile Include="Models\Shipped Data.cs" />
     <Compile Include="Models\SlidingImages.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
@@ -445,6 +451,18 @@
     <Content Include="Views\AdminCategories\edit.cshtml" />
     <Content Include="Views\AdminCategories\delete.cshtml" />
     <Content Include="Views\AdminCategories\EditcreatePartialVeiw.cshtml" />
+    <Content Include="Views\AdminProducts\Index.cshtml" />
+    <Content Include="Views\AdminProducts\Details.cshtml" />
+    <Content Include="Views\AdminProducts\Create.cshtml" />
+    <Content Include="Views\AdminProducts\Edit.cshtml" />
+    <Content Include="Views\AdminProducts\Delete.cshtml" />
+    <Content Include="Views\AdminProducts\Delete_Details.cshtml" />
+    <Content Include="Views\AdminBrands\Create.cshtml" />
+    <Content Include="Views\AdminBrands\Delete.cshtml" />
+    <Content Include="Views\AdminBrands\Details.cshtml" />
+    <Content Include="Views\AdminBrands\Edit.cshtml" />
+    <Content Include="Views\AdminBrands\Index.cshtml" />
+    <Content Include="Views\Account\LogOff.cshtml" />
     <None Include="Views\Shared\product.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -509,8 +527,8 @@
     <Folder Include="Images\CategoriesImages\" />
     <Folder Include="Images\ProductsImages\" />
     <Folder Include="Images\SlideShow Images\" />
+    <Folder Include="Images\UsersProfile\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\AdminProducts\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
@@ -551,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110121050227_users.resx">
       <DependentUpon>202110121050227_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110170619438_progile.resx">
+      <DependentUpon>202110170619438_progile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init.resources" />
     <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init2.resources" />
