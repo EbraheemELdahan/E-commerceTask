@@ -141,7 +141,7 @@ namespace IdentityTask.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View("Login");
         }
 
         //
@@ -153,27 +153,30 @@ namespace IdentityTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName,CompanyName=model.CompanyName,DaetOfBirth=model.DaetOfBirth };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName,CompanyName=model.CompanyName,DaetOfBirth=model.DaetOfBirth,PhoneNumber=model.PhoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                    await UserManager.AddToRoleAsync(user.Id, "UserCustomer");
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
-                    string ImgUser =user.Id+"_"+user.FirstName+user.LastName+UserImg.FileName;
-                    UserImg.SaveAs(Server.MapPath("~/Images/UsersProgile") + ImgUser);
+                    string ImgUser = user.Id + "_" + user.FirstName + user.LastName + UserImg.FileName;
+                    UserImg.SaveAs(Server.MapPath("~/Images/UsersProfile/") + ImgUser);
                     user.UserImg = ImgUser;
                     db.SaveChanges();
-                    
+
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                   
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                     //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index","Home");
+                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    if (user.Roles.ToString() == "Admin")
+                        return RedirectToAction("Index", "AdminProfile");
+                    return View("~/Views/Home/index.cshtml");
                 }
                 AddErrors(result);
+                return View("Login");
             }
 
             // If we got this far, something failed, redisplay form
@@ -410,7 +413,7 @@ namespace IdentityTask.Controllers
         {
             return View();
         }
-
+      
         protected override void Dispose(bool disposing)
         {
             if (disposing)

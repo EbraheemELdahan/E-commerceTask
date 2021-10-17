@@ -1,5 +1,6 @@
-﻿@model IEnumerable<IdentityTask.Models.ApplicationUser>
+﻿@model  List<IdentityTask.Models.ApplicationUser>
 @{
+    ViewBag.name = "Users";
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
@@ -34,10 +35,10 @@
             <td>@item.PhoneNumber</td>
             <td>@item.Roles.FirstOrDefault(a => a.UserId == item.Id).RoleId</td>
             <td>
-                @Html.ActionLink("Details", "Details", "student", new { id = item.Id })|
-                @Html.ActionLink("Edit", "Edit", "student", new { id = item.Id })|
-                @Html.ActionLink("Delete", "Delete", "student", new { id = item.Id }, new { onclick = "return confirm('are you sure to delete')" })|
-                @Html.ActionLink("EditPass", "editpassword", "student", new { id = item.Id })
+                @Html.ActionLink("Details","Details","Users",new {id=item.Id },new { @class="a"})
+                @Html.ActionLink("Edit", "Edit", "Users", new { id = item.Id },new { @class = "a" })|
+                @Html.ActionLink("Delete", "Delete", "Users", new { id = item.Id }, new { @class="a",onclick = "return confirm('are you sure to delete')" })
+               @* @Html.ActionLink("EditPass", "editpassword", "student", new { id = item.Id })*@
             
             </td>
 

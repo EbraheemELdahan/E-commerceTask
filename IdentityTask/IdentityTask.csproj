@@ -176,6 +176,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\Admin\AdminBrandsController.cs" />
     <Compile Include="Controllers\Admin\AdminCategoriesController.cs" />
     <Compile Include="Controllers\Admin\AdminProductsController.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Models\ProductsPaginationViewModel.cs" />
     <Compile Include="Models\Shipped Data.cs" />
     <Compile Include="Models\SlidingImages.cs" />
+    <Compile Include="MyFilters\MyHandleError.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -354,7 +356,10 @@
     <Content Include="Images\assets\images\testimonials\member2.png" />
     <Content Include="Images\assets\images\testimonials\member3.png" />
     <Content Include="Images\assets\images\testimonials\member4.png" />
-    <Content Include="Images\images.jpg" />
+    <Content Include="Images\UsersProfile\84df3688-e991-45fb-a630-6006c3e50c80_IbrahimElDahan321chicken.jpg" />
+    <Content Include="Images\UsersProfile\images.jpg" />
+    <Content Include="Images\UsersProfile\3063038f-1f9d-4d02-9001-6bc43f87b8ab_EbraheemElDahan.jpg" />
+    <Content Include="Images\UsersProfile\6452b2b6-b65e-4d97-a0ae-55a6026eb4f7_EbraheemElDahanimages.jpg" />
     <Content Include="obj\Debug\IdentityTask.csproj.FileListAbsolute.txt" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -438,6 +443,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Views\Shared\404.html" />
     <Content Include="Views\Shared\HtmlPage1.html" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
@@ -463,6 +469,9 @@
     <Content Include="Views\AdminBrands\Edit.cshtml" />
     <Content Include="Views\AdminBrands\Index.cshtml" />
     <Content Include="Views\Account\LogOff.cshtml" />
+    <Content Include="Views\Account\AdminProfile.cshtml" />
+    <Content Include="Views\AdminProfile\Index.cshtml" />
+    <Content Include="Views\Account\RegisterPartialView.cshtml" />
     <None Include="Views\Shared\product.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -519,6 +528,8 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -527,7 +538,6 @@
     <Folder Include="Images\CategoriesImages\" />
     <Folder Include="Images\ProductsImages\" />
     <Folder Include="Images\SlideShow Images\" />
-    <Folder Include="Images\UsersProfile\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>

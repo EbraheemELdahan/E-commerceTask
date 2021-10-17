@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IdentityTask.Models;
+using System.Data.Entity;
 using PagedList;
 using PagedList.Mvc;
 
@@ -41,7 +42,8 @@ namespace IdentityTask.Controllers
         public ActionResult Details(int? id)
         {
             var product = db.Products.FirstOrDefault(a => a.ID == id);
-            ViewBag.ProductsInSameCategory = db.Categories.FirstOrDefault(a => a.ID == product.CategoryID).Products;
+            var ProductsInSameCategory= db.Categories.Include(a => a.Products).FirstOrDefault(a => a.ID == product.CategoryID).Products;
+            ViewBag.ProductsInSameCategory = ProductsInSameCategory;
             return View(product);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using IdentityTask.MyFilters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IdentityTask
@@ -7,7 +8,8 @@ namespace IdentityTask
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            //filters.Add(new HandleErrorAttribute());
+            filters.Add(new MyHandleError());
         }
     }
 }
