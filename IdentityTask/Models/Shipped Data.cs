@@ -12,14 +12,14 @@ namespace IdentityTask.Models
         public string Country { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
-        public int BuildingNumber { get; set; }
+        public String BuildingNumber { get; set; }
         [Key]
-        //[ForeignKey("User")]
+        [ForeignKey("User")]
         public string UserID { get; set; }
 
         //Navigation properity
 
-        
+        public ApplicationUser User { get; set; }
         //public virtual Order Order { get; set; }
     }
 }

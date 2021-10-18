@@ -35,6 +35,7 @@ namespace IdentityTask.Controllers
                 BuildingNumber=shipped_Data.BuildingNumber,
                 Street=shipped_Data.Street
             };
+            db.Shipped_Datas.Add(shippedData);
             db.SaveChanges();
             Order order = new Order()
             {

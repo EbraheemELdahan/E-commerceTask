@@ -238,6 +238,14 @@
     <Compile Include="Migrations\202110170619438_progile.Designer.cs">
       <DependentUpon>202110170619438_progile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110181130368_shippeddata.cs" />
+    <Compile Include="Migrations\202110181130368_shippeddata.Designer.cs">
+      <DependentUpon>202110181130368_shippeddata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110181142373_shippeddata1.cs" />
+    <Compile Include="Migrations\202110181142373_shippeddata1.Designer.cs">
+      <DependentUpon>202110181142373_shippeddata1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -584,6 +592,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110170619438_progile.resx">
       <DependentUpon>202110170619438_progile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110181130368_shippeddata.resx">
+      <DependentUpon>202110181130368_shippeddata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110181142373_shippeddata1.resx">
+      <DependentUpon>202110181142373_shippeddata1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init.resources" />
     <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init2.resources" />
