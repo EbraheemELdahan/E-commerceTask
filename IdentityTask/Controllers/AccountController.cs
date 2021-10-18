@@ -403,7 +403,12 @@ namespace IdentityTask.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("login", "account");
+        }
+        public ActionResult logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login", "Account");
         }
 
         //

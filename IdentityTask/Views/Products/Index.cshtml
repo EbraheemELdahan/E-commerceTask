@@ -1,8 +1,9 @@
 ﻿@model IdentityTask.Models.ProductsPaginationViewModel
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
-
+    IdentityTask.Models.CartViewModel cart = Session["order"] as IdentityTask.Models.CartViewModel;
 
 }
 

@@ -7,6 +7,7 @@ using IdentityTask.Models;
 
 namespace IdentityTask.Controllers
 {
+    [Authorize(Roles = "UserCustomer")]
     public class CustomerController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -25,11 +26,12 @@ namespace IdentityTask.Controllers
 
             return View();
         }
-        public ActionResult Profile(string id)
+        public new ActionResult Profile(string id)
         {
             var user = db.Users.First(a => a.Id == id);
             return View(user);
         }
+       
 
     }
 }
