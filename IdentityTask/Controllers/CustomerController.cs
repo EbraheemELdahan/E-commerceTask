@@ -4,12 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IdentityTask.Models;
+using System.Data.Entity;
+
 
 namespace IdentityTask.Controllers
 {
     [Authorize(Roles = "UserCustomer")]
     public class CustomerController : Controller
     {
+      
+        
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Customer
         public ActionResult Index()
@@ -18,13 +22,13 @@ namespace IdentityTask.Controllers
         }
         public ActionResult Orders()
         {
-
-            return View();
+            
+            return View(db.Orders.ToList());
         }
-        public ActionResult OrderDetails()
+        public ActionResult OrderDetails(int id)
         {
-
-            return View();
+            var order = db.Orders.Include(a=>a.OrderDetails).Include(a=>a.Shipped_Data).FirstOrDefault(a => a.ID == id);
+            return View(order);
         }
         public new ActionResult Profile(string id)
         {

@@ -64,7 +64,7 @@ namespace IdentityTask.Controllers
             }
             db.SaveChanges();
             Session.Remove("order");
-            return RedirectToAction("index", "home");
+            return RedirectToAction("Orders", "Customer");
         }
 
         [HttpGet]

@@ -1,4 +1,4 @@
-﻿
+﻿@model IdentityTask.Models.Order
 @{
     ViewBag.Title = "OrderDetails";
 }
@@ -41,16 +41,16 @@
                                             <th>Address</th>
                                             <th>Building Number</th>
                                         </tr>
-                                        @*@foreach (var item in collection)
-                                        {
+                                        
 
-                                        }*@
+
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>@Model.Shipped_Data.Country</td>
+                                        <td>@Model.Shipped_Data.City</td>
+                                        <td>@Model.Shipped_Data.Street</td>
+                                        <td>@Model.Shipped_Data.BuildingNumber</td>
                                     </tr>
+                                        
                                     </table>
                                 </div>
                             </div>
@@ -71,20 +71,17 @@
                                             <th>Date</th>
                                             <th>Total</th>
                                             <th>Discount</th>
-                                            <th>Tax</th>
-                                            <th>Total After Discount</th>
+                                            @*<th>Tax</th>
+                                            <th>Total After Discount</th>*@
                                         </tr>
-                                        @*@foreach (var item in collection)
-                                        {
-
-                                        }*@
+                                        
                                         <tr>
+                                            <td>@Model.OrderNumber</td>
+                                            <td>@Model.OrderDate</td>
+                                            <td>@Model.TotalPrice</td>
+                                            @*<td>@Model.</td>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td></td>*@
                                         </tr>
                                     </table>
                                 </div>
