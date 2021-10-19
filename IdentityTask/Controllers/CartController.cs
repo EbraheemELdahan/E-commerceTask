@@ -68,7 +68,7 @@ namespace IdentityTask.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddtoCart(int id)
+        public ActionResult AddtoCart(int id,int QuantityArrow)
         {
             //if ((!User.Identity.IsAuthenticated || !User.IsInRole("UserCustomer")))
             //{
@@ -85,9 +85,9 @@ namespace IdentityTask.Controllers
                 int index = IsAddedToCart(id);
                 if (index == -1)
                 {
-                    order.ProductsQuantities.Add(new ProductsQuantityViewModel() { Product = product, Quantity = 1 });
+                    order.ProductsQuantities.Add(new ProductsQuantityViewModel() { Product = product, Quantity = QuantityArrow });
                 }
-                order.ProductsQuantities[index].Quantity++;
+                order.ProductsQuantities[index].Quantity+=QuantityArrow;
                 //order.ProductsQuantities.Add(new ProductsQuantityViewModel() { Product = product, Quantity = 1 });
                 order.TotalPrice += product.Price;
                 order.TotalQuantities++;
@@ -96,10 +96,10 @@ namespace IdentityTask.Controllers
             else
             {
                 order = new CartViewModel();
-                order.TotalQuantities = 1;
+                order.TotalQuantities = QuantityArrow;
                 order.TotalPrice = product.Price;
                 order.ProductsQuantities = new List<ProductsQuantityViewModel>();
-                order.ProductsQuantities.Add(new ProductsQuantityViewModel() { Product = product, Quantity = 1 });
+                order.ProductsQuantities.Add(new ProductsQuantityViewModel() { Product = product, Quantity = QuantityArrow });
                 //for (int i = 0; i < order.ProductsQuantities.Count; i++)
                 //{
                 //    order.TotalPrice += order.ProductsQuantities[i].Quantity * product.Price;

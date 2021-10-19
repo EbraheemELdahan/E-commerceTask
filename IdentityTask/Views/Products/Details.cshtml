@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Details";
 }
+@Html.BeginForm("AddToCart","Cart",new { id=Model.ID},FormMethod.Get)
+{
 
 <div class="breadcrumb">
     <div class="container">
@@ -102,7 +104,7 @@
 
                                     <div id="owl-single-product-thumbnails" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
                                         <div class="owl-wrapper-outer">
-                                            <div class="owl-wrapper" style="width: 1260px; left: 0px; display: block;">
+                                            @*<div class="owl-wrapper" style="width: 1260px; left: 0px; display: block;">
                                                 <div class="owl-item" style="width: 70px;">
                                                     <div class="item">
                                                         <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
@@ -165,7 +167,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>*@
                                         </div>
 
 
@@ -241,12 +243,8 @@
                                                 <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
                                                     <i class="fa fa-heart"></i>
                                                 </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
-                                                    <i class="fa fa-signal"></i>
-                                                </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="E-mail" href="#">
-                                                    <i class="fa fa-envelope"></i>
-                                                </a>
+                                               
+                                               
                                             </div>
                                         </div>
 
@@ -264,17 +262,19 @@
                                             <div class="cart-quantity">
                                                 <div class="quant-input">
                                                     <div class="arrows">
-                                                        <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                                        <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                                        <div class="arrow plus gradient"><span id="up" class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                                                        <div class="arrow minus gradient"><span id="down" class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
                                                     </div>
-                                                    <input type="text" value="1">
+                                                    <input  name="QuantityArrow" type="number" min="1" value="1">
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="add-btn">
+                                           <input type="submit" class="btn btn-primary" value="AddToCart">
+                                            
                                            @* <a href="/Cart/AddToCart/@Model.ID" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>*@
-                                        @Html.ActionLink("ADD TO CART", "AddToCart", "Cart", new { id = Model.ID }, new { @class = "btn btn-primary" })<i class="fa fa-shopping-cart inner-right-vs"></i>
+                                       @* @Html.ActionLink("ADD TO CART", "AddToCart", "Cart", new { id = Model.ID }, new { @class = "btn btn-primary" })<i class="fa fa-shopping-cart inner-right-vs"></i>*@
                                         </div>
 
 
@@ -306,7 +306,7 @@
 
                                 <div id="description" class="tab-pane in active">
                                     <div class="product-tab">
-                                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        <p class="text"> @Model.Description</p>
                                     </div>
                                 </div><!-- /.tab-pane -->
 
@@ -912,7 +912,7 @@
         </ul>
     </div>
 </div>
-
+}
 @section scripts{
 
     <!-- JavaScripts placed at the end of the document so the pages load faster -->
@@ -929,5 +929,17 @@
     <script src="~/Scripts/js/bootstrap-select.min.js"></script>
     <script src="~/Scripts/js/wow.min.js"></script>
     <script src="~/Scripts/js/scripts.js"></script>
+
+
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("up").addEventListener("click", function (e) {
+                (document.getElementsByName("QuantityArrow")[0].value)++;
+            })
+            document.getElementById("down").addEventListener("click", function (e) {
+                (document.getElementsByName("QuantityArrow")[0].value)--;
+            })
+        })
+    </script>
 
 }

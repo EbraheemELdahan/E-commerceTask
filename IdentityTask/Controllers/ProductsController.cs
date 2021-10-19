@@ -17,8 +17,9 @@ namespace IdentityTask.Controllers
         // GET: UserProduct
         public ActionResult Index(int page=1)
         {
-            
-            
+
+            ViewBag.Categories = db.Categories.ToList();
+            ViewBag.Brands = db.Brands.ToList();
             var product = new ProductsPaginationViewModel()
             {
                 Products = db.Products.OrderBy(a => a.ID),
