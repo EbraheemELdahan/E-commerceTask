@@ -122,29 +122,36 @@ namespace IdentityTask.Controllers
                     return i;
                 return -1;
         }
-        public ActionResult ChangeQuantity(int ChangedQuantity,int ChangedId)
-        {
-            int TotalQuantity = 0;
-            float TotalPrice = 0;
-            CartViewModel order = Session["order"]as CartViewModel;
-            order.ProductsQuantities[ChangedId].Quantity = ChangedQuantity;
-            foreach (var item in order.ProductsQuantities)
-            {
-                TotalQuantity += item.Quantity;
-                TotalPrice += (item.Product.Price) *item.Quantity;
-            }
-            order.TotalPrice = TotalPrice;
-            order.TotalQuantities = TotalQuantity;
-            Session["order"] = order;
-            return View("~/Views/Cart/Index");
-        }
+        //public ActionResult ChangeQuantity(int ChangedQuantity,int ChangedId)
+        //{
+        //    int TotalQuantity = 0;
+        //    float TotalPrice = 0;
+        //    CartViewModel order = Session["order"]as CartViewModel;
+        //    order.ProductsQuantities[ChangedId].Quantity = ChangedQuantity;
+        //    foreach (var item in order.ProductsQuantities)
+        //    {
+        //        TotalQuantity += item.Quantity;
+        //        TotalPrice += (item.Product.Price) *item.Quantity;
+        //    }
+        //    order.TotalPrice = TotalPrice;
+        //    order.TotalQuantities = TotalQuantity;
+        //    Session["order"] = order;
+        //    return View("~/Views/Cart/Index");
+        //}
         public ActionResult RemoveFromCart(int id)
         {
+
             CartViewModel cart = Session["order"] as CartViewModel;
             ProductsQuantityViewModel product = cart.ProductsQuantities.Where(a => a.Product.ID == id).FirstOrDefault();
             cart.TotalQuantities -= product.Quantity;
             cart.TotalPrice = cart.TotalPrice - (product.Quantity * product.Product.Price);
-            cart.ProductsQuantities.Remove(product);
+            if (product.Quantity == 1)
+            {
+
+
+                cart.ProductsQuantities.Remove(product);
+            }
+            product.Quantity--;
             Session["order"] = cart;
             return RedirectToAction("index", "home");
         }
