@@ -15,7 +15,7 @@ namespace IdentityTask.Models
         [StringLength(50,MinimumLength =3)]
         public string Name { get; set; }
         [Required(ErrorMessage = "This Field Is Required")]
-        [StringLength(150)]
+        [StringLength(500)]
         public string Description { get; set; }
         public string ImageURL { get; set; }
         public float Price { get; set; }

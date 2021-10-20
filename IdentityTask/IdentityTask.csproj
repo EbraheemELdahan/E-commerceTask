@@ -198,53 +198,21 @@
     <Compile Include="Migrations\202104070913436_init2.Designer.cs">
       <DependentUpon>202104070913436_init2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110061052383_repoteq.cs" />
-    <Compile Include="Migrations\202110061052383_repoteq.Designer.cs">
-      <DependentUpon>202110061052383_repoteq.cs</DependentUpon>
+    <Compile Include="Migrations\202110200907060_init3.cs" />
+    <Compile Include="Migrations\202110200907060_init3.Designer.cs">
+      <DependentUpon>202110200907060_init3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110061139348_date2.cs" />
-    <Compile Include="Migrations\202110061139348_date2.Designer.cs">
-      <DependentUpon>202110061139348_date2.cs</DependentUpon>
+    <Compile Include="Migrations\202110200912170_init4.cs" />
+    <Compile Include="Migrations\202110200912170_init4.Designer.cs">
+      <DependentUpon>202110200912170_init4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110100817129_updates.cs" />
-    <Compile Include="Migrations\202110100817129_updates.Designer.cs">
-      <DependentUpon>202110100817129_updates.cs</DependentUpon>
+    <Compile Include="Migrations\202110200915354_init5.cs" />
+    <Compile Include="Migrations\202110200915354_init5.Designer.cs">
+      <DependentUpon>202110200915354_init5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110101426563_categoryImg.cs" />
-    <Compile Include="Migrations\202110101426563_categoryImg.Designer.cs">
-      <DependentUpon>202110101426563_categoryImg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110101504037_nullableParentCategory.cs" />
-    <Compile Include="Migrations\202110101504037_nullableParentCategory.Designer.cs">
-      <DependentUpon>202110101504037_nullableParentCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110101507348_barnd.cs" />
-    <Compile Include="Migrations\202110101507348_barnd.Designer.cs">
-      <DependentUpon>202110101507348_barnd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110101834196_brandProduct.cs" />
-    <Compile Include="Migrations\202110101834196_brandProduct.Designer.cs">
-      <DependentUpon>202110101834196_brandProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110101852184_productBrand2.cs" />
-    <Compile Include="Migrations\202110101852184_productBrand2.Designer.cs">
-      <DependentUpon>202110101852184_productBrand2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110121050227_users.cs" />
-    <Compile Include="Migrations\202110121050227_users.Designer.cs">
-      <DependentUpon>202110121050227_users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110170619438_progile.cs" />
-    <Compile Include="Migrations\202110170619438_progile.Designer.cs">
-      <DependentUpon>202110170619438_progile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110181130368_shippeddata.cs" />
-    <Compile Include="Migrations\202110181130368_shippeddata.Designer.cs">
-      <DependentUpon>202110181130368_shippeddata.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110181142373_shippeddata1.cs" />
-    <Compile Include="Migrations\202110181142373_shippeddata1.Designer.cs">
-      <DependentUpon>202110181142373_shippeddata1.cs</DependentUpon>
+    <Compile Include="Migrations\202110200919434_init6.cs" />
+    <Compile Include="Migrations\202110200919434_init6.Designer.cs">
+      <DependentUpon>202110200919434_init6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -371,6 +339,8 @@
     <Content Include="Images\UsersProfile\3063038f-1f9d-4d02-9001-6bc43f87b8ab_EbraheemElDahan.jpg" />
     <Content Include="Images\UsersProfile\6452b2b6-b65e-4d97-a0ae-55a6026eb4f7_EbraheemElDahanimages.jpg" />
     <Content Include="obj\Debug\IdentityTask.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\IdentityTask.dll" />
+    <Content Include="obj\Debug\IdentityTask.pdb" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -421,6 +391,7 @@
     <None Include="Content\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="obj\Debug\IdentityTask.csproj.CopyComplete" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -564,44 +535,24 @@
     <EmbeddedResource Include="Migrations\202104070913436_init2.resx">
       <DependentUpon>202104070913436_init2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110061052383_repoteq.resx">
-      <DependentUpon>202110061052383_repoteq.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110200907060_init3.resx">
+      <DependentUpon>202110200907060_init3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110061139348_date2.resx">
-      <DependentUpon>202110061139348_date2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110200912170_init4.resx">
+      <DependentUpon>202110200912170_init4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110100817129_updates.resx">
-      <DependentUpon>202110100817129_updates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110200915354_init5.resx">
+      <DependentUpon>202110200915354_init5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110101426563_categoryImg.resx">
-      <DependentUpon>202110101426563_categoryImg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110101504037_nullableParentCategory.resx">
-      <DependentUpon>202110101504037_nullableParentCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110101507348_barnd.resx">
-      <DependentUpon>202110101507348_barnd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110101834196_brandProduct.resx">
-      <DependentUpon>202110101834196_brandProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110101852184_productBrand2.resx">
-      <DependentUpon>202110101852184_productBrand2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110121050227_users.resx">
-      <DependentUpon>202110121050227_users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110170619438_progile.resx">
-      <DependentUpon>202110170619438_progile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110181130368_shippeddata.resx">
-      <DependentUpon>202110181130368_shippeddata.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110181142373_shippeddata1.resx">
-      <DependentUpon>202110181142373_shippeddata1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110200919434_init6.resx">
+      <DependentUpon>202110200919434_init6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init.resources" />
     <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init2.resources" />
+    <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init3.resources" />
+    <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init4.resources" />
+    <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init5.resources" />
+    <EmbeddedResource Include="obj\Debug\IdentityTask.Migrations.init6.resources" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

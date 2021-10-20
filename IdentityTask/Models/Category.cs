@@ -15,7 +15,7 @@ namespace IdentityTask.Models
         [StringLength(50,MinimumLength =3)]
         public string Name { get; set; }
         [Required(ErrorMessage = "This Field is Required")]
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength(500, MinimumLength = 3)]
         public string Description { get; set; }
         [ForeignKey("ParentCategory")]
         public int? ParentCategoryID { get; set; }

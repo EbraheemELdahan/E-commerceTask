@@ -1,10 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    
 }
 
 @using (Html.BeginForm("checkout", "Cart", FormMethod.Post))
 {
+    
     <div class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-inner">
@@ -43,45 +45,48 @@
 
                                     @foreach (var item2 in ViewBag.order.ProductsQuantities)
                                     {
+                                        
 
+                                        ViewBag.ID = item2.Product.ID;
+                                    <tr>
+                                        <td class="romove-item"><a id="removeProduct.@item2.Product.ID" onclick="remove(e, this.id)" href="/Cart/RemoveFromCart/@item2.Product.ID" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
+                                        @*<td class="romove-item"><button id="removeProduct.@item2.Product.ID" onclick="remove(e, this.id)" title="cancel" class="icon"><i class="fa fa-trash-o"></i></button></td>*@
 
-                                        <tr>
-                                            <td class="romove-item"><a href="/Cart/RemoveFromCart/@item2.Product.ID" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
-                                            <td class="cart-image">
-                                                <a class="entry-thumbnail" href="/Products/Details/@item2.Product.ID">
-                                                    <img src="~/Images/ProductsImages/@item2.Product.ImageURL" alt="">
-                                                </a>
-                                            </td>
-                                            <td class="cart-product-name-info">
-                                                <h4 class='cart-product-description'><a href="/Products/Details/@item2.Product.ID">@item2.Product.Name</a></h4>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="rating rateit-small"></div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="reviews">
-                                                            (06 Reviews)
-                                                        </div>
-                                                    </div>
-                                                </div><!-- /.row -->
-                                                <div class="cart-product-info">
-                                                    <span class="product-color">COLOR:<span>Blue</span></span>
+                                        <td class="cart-image">
+                                            <a class="entry-thumbnail" href="/Products/Details/@item2.Product.ID">
+                                                <img src="~/Images/ProductsImages/@item2.Product.ImageURL" alt="">
+                                            </a>
+                                        </td>
+                                        <td class="cart-product-name-info">
+                                            <h4 class='cart-product-description'><a href="/Products/Details/@item2.Product.ID">@item2.Product.Name</a></h4>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="rating rateit-small"></div>
                                                 </div>
-                                            </td>
-                                            <td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
-                                            <td class="cart-product-quantity">
-                                                @*<div class="quant-input">
-                                                    <div class="arrows">
-                                                        <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                                        <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                                <div class="col-sm-12">
+                                                    <div class="reviews">
+                                                        (06 Reviews)
                                                     </div>
-                                                    <input type="text" value="1">
-                                                </div>*@
-                                                @item2.Quantity
-                                            </td>
-                                            <td class="cart-product-sub-total"><span class="cart-sub-total-price">@item2.Product.Price</span></td>
-                                            <td class="cart-product-grand-total"><span class="cart-grand-total-price">@ViewBag.order.TotalPrice</span></td>
-                                        </tr>
+                                                </div>
+                                            </div><!-- /.row -->
+                                            <div class="cart-product-info">
+                                                <span class="product-color">COLOR:<span>Blue</span></span>
+                                            </div>
+                                        </td>
+                                        <td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
+                                        <td class="cart-product-quantity">
+                                            @*<div class="quant-input">
+                <div class="arrows">
+                    <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                    <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                </div>
+                <input type="text" value="1">
+            </div>*@
+                                            @item2.Quantity
+                                        </td>
+                                        <td class="cart-product-sub-total"><span class="cart-sub-total-price">@item2.Product.Price</span></td>
+                                        <td class="cart-product-grand-total"><span class="cart-grand-total-price">@ViewBag.order.TotalPrice</span></td>
+                                    </tr>
 
                                     }
 
@@ -118,26 +123,26 @@
                                             <label class="info-title control-label">Country <span>*</span></label>
                                             @Html.TextBox("Country", null, new { @class = "form-control" })
                                             @*<select class="form-control unicase-form-control selectpicker">
-                <option>--Select options--</option>
-                <option>India</option>
-                <option>SriLanka</option>
-                <option>united kingdom</option>
-                <option>saudi arabia</option>
-                <option>united arab emirates</option>
-            </select>*@
+                                                    <option>--Select options--</option>
+                                                    <option>India</option>
+                                                    <option>SriLanka</option>
+                                                    <option>united kingdom</option>
+                                                    <option>saudi arabia</option>
+                                                    <option>united arab emirates</option>
+                                                </select>*@
                                         </div>
                                         <div class="form-group">
                                             <label class="info-title control-label">City <span>*</span></label>
                                             @Html.TextBox("City", null, new { @class = "form-control" })
 
                                             @*<select class="form-control unicase-form-control selectpicker">
-                <option>--Select options--</option>
-                <option>TamilNadu</option>
-                <option>Kerala</option>
-                <option>Andhra Pradesh</option>
-                <option>Karnataka</option>
-                <option>Madhya Pradesh</option>
-            </select>*@
+                                                    <option>--Select options--</option>
+                                                    <option>TamilNadu</option>
+                                                    <option>Kerala</option>
+                                                    <option>Andhra Pradesh</option>
+                                                    <option>Karnataka</option>
+                                                    <option>Madhya Pradesh</option>
+                                                </select>*@
                                         </div>
                                         <div class="form-group">
                                             <label class="info-title control-label">Street</label>
@@ -148,14 +153,13 @@
                                             <input type="text" name="BuildingNumber" class="form-control unicase-form-control text-input" placeholder="">
                                         </div>
                                         <div class="pull-right">
-           @* <input type="submit" class="btn-upper btn btn-primary" value="GET A QOUTE">*@
-        </div>
+                                            @* <input type="submit" class="btn-upper btn btn-primary" value="GET A QOUTE">*@
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div><!-- /.estimate-ship-tax -->
-
                     <!--<div class="col-md-4 col-sm-12 estimate-ship-tax">
                         <table class="table">
                             <thead>
@@ -177,8 +181,9 @@
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>--><!-- /tbody -->
-                        <!--</table>--><!-- /table -->
+                            </tbody>-->
+                    <!-- /tbody -->
+                    <!--</table>--><!-- /table -->
                     <!--</div>--><!-- /.estimate-ship-tax -->
 
                     <div class="col-md-4 col-sm-12 cart-shopping-total">
@@ -200,19 +205,18 @@
                                     <td>
                                         <div class="cart-checkout-btn pull-right">
                                             @*<button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>*@
-                                           @* @Html.ActionLink("PROCCED TO CHEKOUT", "checkout", "Cart", null, new { @class = "btn btn-primary checkout-btn" })*@
-                                           <input type="submit" value="PROCCED TO CHEKOUT" class="btn btn-primary checkout-btn"/>
+                                            @* @Html.ActionLink("PROCCED TO CHEKOUT", "checkout", "Cart", null, new { @class = "btn btn-primary checkout-btn" })*@
+                                            <input type="submit" value="PROCCED TO CHEKOUT" class="btn btn-primary checkout-btn" />
                                             <span class="">Checkout with multiples address!</span>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody><!-- /tbody -->
                         </table><!-- /table -->
-                        
+
                     </div><!-- /.cart-shopping-total -->
                 </div><!-- /.shopping-cart -->
             </div><!-- /.row -->
-            
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
             <div id="brands-carousel" class="logo-slider wow fadeInUp">
 
@@ -322,3 +326,21 @@
     </div>
 
 }
+@*@section scripts{
+    <script>
+        var id=$("#remove")
+            $(function () {
+
+                function remove(e, myid) {
+                    var id = myid.split('.')[1];
+                    $.ajax({
+                        url: "/Cart/RemoveFromCart",
+                        data: id,
+                        success: function (res) { console.log(res) },
+                        error: function (err) { console.log(err) }
+
+                    })
+                }
+            })
+        </script>
+}*@
